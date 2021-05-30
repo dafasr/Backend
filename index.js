@@ -14,7 +14,6 @@ const con = mysql.createConnection({
 })
 con.connect(function(err){
     if(err) console.log(err);
-    else console.log("Connected!")
 })
 app.get('/', (req, res) => {
     res.send(`<html><div><form method="post" action="/todo"><input type="text" name="kode"/><button type="submit">Add</button></form></div></html>`);
@@ -25,7 +24,6 @@ app.post('/todo', (req, res) => {
     var db = "INSERT INTO todolist (Hal) VALUES ('"+data+"')"
     con.query(db, data, function(err, data1){
         if(err) throw err;
-        console.log("User Data has inserted!")
     })
     res.end()
 })
